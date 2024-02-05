@@ -4,26 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spritesheets</title>
+    <link rel="stylesheet" href="styles/geral.css">
 
+    <!-- Processamento -->
+    <script id="">
+        window.onload = function () {
+            // Aqui trabalharei com Canvas
+        }
+    </script>
 </head>
-<body>
-
-    
-    <div id="pagina" style="background-color: black;">
-
+<body style="background-color:black">    
         <!-- Geração de imagem -->
 
         <!-- A tag <canvas> é usada para criar gráficos, desenhos e animações no lado do cliente usando JavaScript -->
-            
-        <canvas id="gamesheet" width="100px;" height="100px">Seu navegador não suporta o Canvas do HTML5. <br> Procure atualizálo</canvas>
 
-        <!-- Desenhar no Canvas -->
-        <script id="">
-            window.onload = function () {
-                // Aqui trabalharei com Canvas
-            }
-        </script>
-    </div>
-    <script src="script.js"></script>
+        <canvas id="meu_canvas" width="400px;" height="400px"></canvas>
+        <script>
+            //Canvas e Contexto
+            var canvas = document.getElementById('meu_canvas');
+            var context = canvas.getContext('2d');
+
+
+            //Preenchimento Roxo e Contorno
+            context.fillStyle = 'yellow' //preenchimento
+            context.fillRect(50, 50, 100, 100); //medidas do contorno
+
+
+
+            //Propriedades: FillStyle, strokeStyle e lineWidth
+
+            context.lineWidth = 3; //espessura da linha em pixels
+            context.strokeStyle = 'purple'; //cor da linha
+            context.strokeRect(50, 50, 100, 100); //contorno
+
+
+
+            // Iniciar o caminho (apaga desenhos anteriores)
+            context.beginPath();
+            // Desenhar uma estrela
+            context.moveTo(75, 250); // Ponto inicial
+            context.lineTo(150, 50);
+            context.lineTo(225, 250);
+            context.lineTo(50, 120);
+            context.lineTo(250, 120);
+            context.lineTo(75, 250);
+            // Configurar a linha
+            context.lineWidth = 2;
+            context.strokeStyle = 'red';
+            // Traçar as linhas do caminho
+            context.stroke();
+
+
+
+            // Exemplo teórico
+            context.arc(
+            50, // X (centro)
+            50, // Y (centro)
+            40, // Raio
+            90*Math.PI/180, // Início: 90 graus
+            270*Math.PI/180, // Término: 270 graus
+            false // Sentido anti-horário
+            );
+        </script>    
+        
 </body>
 </html>
